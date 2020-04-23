@@ -13,7 +13,8 @@ RUN install_packages \
       libssl-dev \
       pkg-config \
       libprotobuf-dev \
-      make
+      make \
+      xclip
 
 # Install Golang
 ENV GOROOT=/go

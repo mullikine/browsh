@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/atotto/clipboard"
 	"github.com/gdamore/tcell"
 	"github.com/go-errors/errors"
 	"github.com/spf13/viper"
@@ -71,6 +72,9 @@ func handleUserKeyPress(ev *tcell.EventKey) {
 		if activeInputBox == nil {
 			sendMessageToWebExtension("/tab_command,/history_back")
 		}
+	}
+	if ev.Rune() == 'c' && ev.Modifiers() == 4 {
+		clipboard.WriteAll(urlInputBox.text)
 	}
 	if ev.Rune() == 'm' && ev.Modifiers() == 4 {
 		toggleMonochromeMode()

@@ -73,8 +73,11 @@ func handleUserKeyPress(ev *tcell.EventKey) {
 			sendMessageToWebExtension("/tab_command,/history_back")
 		}
 	}
+	if ev.Rune() == 'w' && ev.Modifiers() == 4 {
+		clipboard.WriteAll(string([]rune(CurrentTab.URI)))
+	}
 	if ev.Rune() == 'c' && ev.Modifiers() == 4 {
-		clipboard.WriteAll(urlInputBox.text)
+		clipboard.WriteAll(string(urlInputBox.text))
 	}
 	if ev.Rune() == 'm' && ev.Modifiers() == 4 {
 		toggleMonochromeMode()

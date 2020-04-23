@@ -13,8 +13,7 @@ RUN install_packages \
       libssl-dev \
       pkg-config \
       libprotobuf-dev \
-      make \
-      xclip
+      make
 
 # Install Golang
 ENV GOROOT=/go
@@ -49,7 +48,8 @@ RUN install_packages \
       ca-certificates \
       bzip2 \
       libdbus-glib-1-2 \
-      procps
+      procps \
+      xclip
 
 # Block ads, etc. This includes porn just because this image is also used on the
 # public SSH demo: `ssh brow.sh`.
